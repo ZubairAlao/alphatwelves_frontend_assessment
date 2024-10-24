@@ -114,10 +114,10 @@ const EventHistory = () => {
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0">
                         <Calendar
-                        mode="single"
-                        selected={date}
-                        onSelect={setDate}
-                        initialFocus
+                            mode="single"
+                            selected={date}
+                            onSelect={setDate}
+                            initialFocus
                         />
                     </PopoverContent>
                 </Popover>
