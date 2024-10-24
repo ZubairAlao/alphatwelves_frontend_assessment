@@ -4,13 +4,15 @@ import { NavLink } from "react-router-dom";
 import { navHeaders } from "@/constants";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
-import { useTheme } from "next-themes";
+import { useTheme } from "./theme-provider";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 
 const DesktopSideBar = () => {
     const [toggleDesktopFullWidth, setToggleDesktopFullWidth] = useState(false)
     const { setTheme, theme } = useTheme()
+
+    const isDarkMode = theme === "dark"
 
     const toggleTheme = () => {
         setTheme(isDarkMode ? "light" : "dark")
@@ -19,7 +21,7 @@ const DesktopSideBar = () => {
     const handleToggleDesktopFullWidth = () => {
         setToggleDesktopFullWidth(!toggleDesktopFullWidth)
       }
-    const isDarkMode = theme === "dark"
+    
   return (
     <div>
         {/* desktop */}

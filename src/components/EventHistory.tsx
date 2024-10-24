@@ -1,4 +1,4 @@
-import { Dot, Download, Search } from "lucide-react"
+import { BookMarkedIcon, Dot, Download, Search } from "lucide-react"
 import EventList from "./EventList"
 import { Input } from "./ui/input"
 import {
@@ -38,6 +38,8 @@ const EventHistory = () => {
     const [speaker, setSpeaker] = useState<string | undefined>(undefined);
     const [orderEvent, setOrderEvents] = useState<string>("recent");
     const [searchTitle, setSearchTitle] = useState<string>("");
+
+    const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
     const formatDate = (date: Date | undefined): string => {
         if (!date) return '';
@@ -99,7 +101,7 @@ const EventHistory = () => {
                     </div>
                 </div>
 
-                <Popover>
+                <Popover open={isCalendarOpen} onOpenChange={setIsCalendarOpen}>
                     <PopoverTrigger asChild>
                         <Button
                         variant={"outline"}
@@ -116,8 +118,12 @@ const EventHistory = () => {
                         <Calendar
                             mode="single"
                             selected={date}
-                            onSelect={setDate}
+                            onSelect={(e) => {
+                                setDate(e);
+                                setIsCalendarOpen(false);
+                              }}
                             initialFocus
+                            className="dark:bg-background-dark"
                         />
                     </PopoverContent>
                 </Popover>

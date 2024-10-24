@@ -17,8 +17,8 @@ const EventChart = () => {
   return (
     <section className="py-6 container">
       <p className="text-xl font-semibold mb-4">Event Registrations per month</p>
-      <div className="space-y-4 lg:space-y-0 lg:flex justify-between  items-center lg:h-[350px] w-full">
-        <ChartContainer config={chartConfig} className="border-2 dark:border-none dark:bg-background-dark py-6 lg:min-h-[320px] w-full lg:max-w-[500px]">
+      <div className="space-y-8 lg:space-y-0 lg:flex justify-center gap-2 items-center">
+        <ChartContainer config={chartConfig} className="border-2 dark:border-none dark:bg-background-dark lg:w-1/2 xl:h-[320px]">
           <BarChart
             accessibilityLayer
             data={revenueData} 

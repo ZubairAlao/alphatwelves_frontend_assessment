@@ -78,7 +78,7 @@ import { DialogEdit } from "./DialogEdit";
         pageNumbers.push(
           <PaginationItem key={1}>
             <PaginationLink
-              className={currentPage === 1 ? "font-bold bg-gray-600  text-white rounded-full h-[24px] w-[24px] cursor-pointer" : "cursor-pointer"}
+              className={currentPage === 1 ? "font-bold bg-[#F1F5F9] dark:bg-[#6A6676] rounded-full h-[24px] w-[24px] cursor-pointer" : "cursor-pointer"}
               onClick={() => handlePageClick(1)}
             >
               1
@@ -97,7 +97,7 @@ import { DialogEdit } from "./DialogEdit";
           pageNumbers.push(
             <PaginationItem key={i}>
               <PaginationLink
-                className={currentPage === i ? "font-bold bg-black text-white rounded-full h-[24px] w-[24px]" : " cursor-pointer"}
+                className={currentPage === i ? "font-bold bg-[#F1F5F9] dark:bg-[#6A6676] rounded-full h-[24px] w-[24px]" : " cursor-pointer"}
                 onClick={() => handlePageClick(i)}
               >
                 {i}
@@ -115,7 +115,7 @@ import { DialogEdit } from "./DialogEdit";
         pageNumbers.push(
           <PaginationItem key={totalPages}>
             <PaginationLink
-              className={currentPage === totalPages ? "font-bold bg-black text-white rounded-full h-[24px] w-[24px] cursor-pointer" : "cursor-pointer"}
+              className={currentPage === totalPages ? "font-bold bg-[#F1F5F9] dark:bg-[#6A6676] rounded-full h-[24px] w-[24px] cursor-pointer" : "cursor-pointer"}
               onClick={() => handlePageClick(totalPages)}
             >
               {totalPages}
