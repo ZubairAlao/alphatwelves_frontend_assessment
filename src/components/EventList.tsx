@@ -4,8 +4,6 @@ import {
     PaginationEllipsis,
     PaginationItem,
     PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
   } from "@/components/ui/pagination";
   import {
     Accordion,
@@ -19,14 +17,12 @@ import {
     SelectContent,
     SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
   } from "@/components/ui/select"
   import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
     TableHead,
     TableHeader,
@@ -154,21 +150,25 @@ import { DialogEdit } from "./DialogEdit";
         <div className="container">
           {/* Render Accordion for the current page */}
           <Accordion type="single" collapsible className="w-full xl:hidden">
-            {eventsData.slice(startIndex, endIndex).map((eventlist, index) => (
+          {eventsData && eventsData.length > 0 ? (
+            eventsData.slice(startIndex, endIndex).map((eventlist, index) => (
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="flex items-center text-xs">
-                    <span className="w-[140px] text-left">{eventlist.title}</span>
-                    <span className={`p-1 text-white text-xs rounded-md ${eventlist.status.toLowerCase() === "in progress" ? "bg-green-700" : "bg-blue-600"}`}>
-                        {eventlist.status}
-                    </span>
+                  <span className="w-[140px] text-left">{eventlist.title}</span>
+                  <span className={`p-1 text-white text-xs rounded-md ${eventlist.status.toLowerCase() === "in progress" ? "bg-green-700" : "bg-blue-600"}`}>
+                    {eventlist.status}
+                  </span>
                 </AccordionTrigger>
                 <AccordionContent className="flex justify-between items-center text-xs">
                   <p>{eventlist.speaker}</p>
-                  <DialogEdit title={eventlist.title} status={eventlist.status} date={eventlist.date} DisplayText="Edit" />
+                  <DialogEdit title={eventlist.title} date={eventlist.date} DisplayText="Edit" />
                   <p>{eventlist.date}</p>
                 </AccordionContent>
               </AccordionItem>
-            ))}
+            ))
+          ) : (
+            <p className="font-bold my-8 flex justify-center">No Data</p>
+          )}
           </Accordion>
 
           <div className="hidden xl:block max-w-screen-xl">
@@ -182,16 +182,26 @@ import { DialogEdit } from "./DialogEdit";
                 </TableRow>
               </TableHeader>
               <TableBody className=" w-full">
-              {eventsData.slice(startIndex, endIndex).map((eventlist, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">
-                    <DialogEdit title={eventlist.title} status={eventlist.status} date={eventlist.date} DisplayText={eventlist.title} />
-                  </TableCell>
-                  <TableCell>{eventlist.date}</TableCell>
-                  <TableCell>{eventlist.speaker}</TableCell>
-                  <TableCell className="text-right">{eventlist.status}</TableCell>
+              {eventsData && eventsData.length > 0 ? (
+                eventsData.slice(startIndex, endIndex).map((eventlist, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium">
+                      <DialogEdit 
+                        title={eventlist.title} 
+                        date={eventlist.date} 
+                        DisplayText={eventlist.title} 
+                      />
+                    </TableCell>
+                    <TableCell>{eventlist.date}</TableCell>
+                    <TableCell>{eventlist.speaker}</TableCell>
+                    <TableCell className="text-right">{eventlist.status}</TableCell>
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell colSpan={4} className="text-center">NO data</TableCell>
                 </TableRow>
-                ))}
+              )}
               </TableBody>
             </Table>
           </div>

@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
         <Header />
-        <main className='xl:flex gap-12 bg-white dark:bg-gray-800 dark:text-white'>
+        <main className='xl:flex gap-8 bg-white dark:bg-gray-800 dark:text-white'>
             <DesktopSideBar/>
             <Outlet />
         </main>

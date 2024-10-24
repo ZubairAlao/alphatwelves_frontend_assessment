@@ -8,7 +8,6 @@ import {
     SelectItem,
     SelectLabel,
     SelectTrigger,
-    SelectValue,
 } from "@/components/ui/select"
 import * as React from "react"
 import { eventsProgram } from "@/constants"
@@ -79,6 +78,8 @@ const EventHistory = () => {
         } else if (orderEvent === "oldest") {
             sortedEvents.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
         }
+
+        console.log(sortedEvents)
     
   return (
     <section className="pb-[100px]">
@@ -103,7 +104,7 @@ const EventHistory = () => {
                         <Button
                         variant={"outline"}
                         className={cn(
-                            "w-full xl:max-w-[80px]  justify-start text-left font-normal",
+                            "w-full xl:max-w-[180px]  justify-start text-left font-normal",
                             !date && "text-muted-foreground"
                         )}
                         >
@@ -151,10 +152,13 @@ const EventHistory = () => {
                     </SelectContent>
                 </Select>
 
-                <p>Displaying {filteredEvents.length} results <span className="ml-8 px-1 py-0.5 bg-red-500 rounded-md text-white cursor-pointer" onClick={clearAll}>clear</span></p>
+                <div className="flex gap-2 xl:items-center">
+                    <p>Displaying {filteredEvents.length} results</p>
+                    <span className="ml-8 px-1 py-0.5 bg-red-500 rounded-md text-white cursor-pointer" onClick={clearAll}>clear</span>
+                </div>
 
                 <div className="flex justify-between items-center">
-                    <p>Sort:</p>
+                    <p className="mr-4">Sort:</p>
                     <Select onValueChange={(value) => setOrderEvents(value)}>
                         <SelectTrigger className="w-[130px] dark:border-none dark:bg-background-dark focus:ring-0 focus:outline-none">
                             {orderEvent ? orderEvent : "Order Time"}
@@ -168,14 +172,14 @@ const EventHistory = () => {
                     </Select>
                 </div>
 
-                <div className="flex justify-between items-center">
+                <div className="flex xl:gap-2 justify-between items-center">
                     <div className="w-[30px] h-[30px] border-2 flex flex-col items-center justify-center rounded-md cursor-pointer p-1">
                         <Dot className="w-5" />
                         <Dot className="w-5" />
                         <Dot className="w-5" />
                     </div>
-                    <div className="flex gap-2 border-2 py-1.5 px-3 rounded-md cursor-pointer">
-                        <Download className="w-[24px]" />
+                    <div className="flex gap-2 border-2 py-1 px-3 rounded-md cursor-pointer">
+                        <Download className="w-[20px]" />
                         Export
                     </div>
                 </div>

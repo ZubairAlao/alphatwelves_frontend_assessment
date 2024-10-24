@@ -13,11 +13,10 @@ export type EventProgramWithText  = {
   title: string;
   speaker?: string;
   date: string;
-  status: string;
   DisplayText:string;
 }
 
-export function DialogEdit({ title, date, status, DisplayText}: EventProgramWithText) {
+export function DialogEdit({ title, date, DisplayText}: EventProgramWithText) {
   return (
     <Dialog>
       <DialogTrigger asChild>

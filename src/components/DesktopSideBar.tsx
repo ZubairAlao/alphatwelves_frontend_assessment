@@ -1,5 +1,5 @@
 import imgAvatar from "@/assets/icons/header_icons/image_icon.svg"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navHeaders } from "@/constants";
 import { Switch } from "./ui/switch";
@@ -24,7 +24,7 @@ const DesktopSideBar = () => {
     <div>
         {/* desktop */}
         <div
-            className={`pt-20 max-w-[240px] overflow-y-auto hidden xl:flex bg-white dark:bg-background-dark dark:text-white min-h-screen p-6 h-screen transition-all duration-500 ease-in-out transform w-[100%] border-r dark:border-none border-gray-300`}
+            className={`pt-20 max-w-[240px] overflow-y-auto hidden xl:flex bg-white dark:bg-background-dark dark:text-white min-h-screen p-6 h-screen transform w-[100%] border-r dark:border-none border-gray-300`}
           >
             <ul className="w-full">
               {navHeaders.map((link) => (
@@ -41,15 +41,15 @@ const DesktopSideBar = () => {
                   </NavLink>
                 </li>
               ))}
-              <li className="flex gap-2 items-center w-full py-2 px-4 text-sm text-[#64748B]">
+              <li className="flex gap-2 items-center w-full py-2 px-4 text-sm">
                 {toggleDesktopFullWidth ? 
                     <ArrowRight 
-                    className="cursor-pointer w-[24px]"
+                    className="cursor-pointer w-[24px] text-[#64748B]"
                         onClick={handleToggleDesktopFullWidth}
                     />
                  : 
                     <ArrowLeft 
-                    className="cursor-pointer w-[24px]"
+                    className="cursor-pointer w-[24px] text-[#64748B]"
                     onClick={handleToggleDesktopFullWidth}
                     />
                  }
