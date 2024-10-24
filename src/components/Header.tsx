@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LogoIcon from "@/assets/icons/logo.svg";
 import imgAvatar from "@/assets/icons/header_icons/image_icon.svg"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { navHeaders } from "@/constants";
 import CloseIcon from "@/assets/icons/close.svg"
