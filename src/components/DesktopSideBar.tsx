@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { navHeaders } from "@/constants";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
-import { useTheme } from "./theme-provider";
+import { useTheme } from "@/components/theme-provider"
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
 

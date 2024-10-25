@@ -1,4 +1,4 @@
-import { BookMarkedIcon, Dot, Download, Search } from "lucide-react"
+import { Dot, Download, Search } from "lucide-react"
 import EventList from "./EventList"
 import { Input } from "./ui/input"
 import {

@@ -171,7 +171,7 @@ import { DialogEdit } from "./DialogEdit";
           )}
           </Accordion>
 
-          <div className="hidden xl:block max-w-screen-xl">
+          <div className="hidden xl:block max-w-screen-xl border-2">
           <Table>
               <TableHeader>
                 <TableRow>
