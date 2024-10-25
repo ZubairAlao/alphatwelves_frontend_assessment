@@ -4,7 +4,7 @@ import Hero from '@/components/Hero'
 
 const Home = () => {
   return (
-    <div className='w-full'>
+    <div className='w-full xl:max-w-[1240px]'>
       <Hero />
       <EventChart />
       <EventHistory/>

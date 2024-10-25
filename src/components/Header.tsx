@@ -40,7 +40,7 @@ export default function Header() {
   }
 
   return (
-    <header className='fixed top-0 z-50 bg-white dark:bg-background-dark w-full h-[64px] shadow-md flex justify-between items-center'>
+    <header className='fixed top-0 z-50 bg-white dark:bg-background-dark w-full h-[64px] shadow-md flex justify-start max-w-[1480px] items-center '>
       <div className="flex justify-between items-center container" >
         {/* logo */}
         <div>
