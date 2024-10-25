@@ -194,7 +194,9 @@ import { DialogEdit } from "./DialogEdit";
                     </TableCell>
                     <TableCell>{eventlist.date}</TableCell>
                     <TableCell>{eventlist.speaker}</TableCell>
-                    <TableCell className="text-right">{eventlist.status}</TableCell>
+                    <TableCell className="text-right">
+                      <span className={`p-2 rounded-md ${eventlist.status.toLowerCase() === "in progress" ? "bg-green-700" : "bg-blue-600"}`}>{eventlist.status}</span>
+                      </TableCell>
                   </TableRow>
                 ))
               ) : (
