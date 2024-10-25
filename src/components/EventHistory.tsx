@@ -87,14 +87,14 @@ const EventHistory = () => {
     <section className="pb-[100px]">
         <div>
             <h1 className="text-xl font-semibold mb-4 container">Events History</h1> 
-            <div className="space-y-2  xl:space-y-0  text-sm container xl:flex items-center gap-6">
+            <div className="space-y-2  xl:space-y-0  text-sm container xl:flex items-center gap-3">
                 <div className="relative w-full xl:max-w-[200px]">
                     <Input
                         type="text"
                         placeholder="Search..."
                         value={searchTitle}
                         onChange={(e) => setSearchTitle(e.target.value)}
-                        className="pl-10 pr-3 dark:border-none dark:bg-background-dark focus:ring-0 focus:outline-none"
+                        className="pl-8 pr-3 dark:border-none dark:bg-background-dark focus:ring-0 focus:outline-none text-xs"
                     />
                     <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                         <Search className="w-4 h-4 text-gray-400" />
@@ -106,8 +106,8 @@ const EventHistory = () => {
                         <Button
                         variant={"outline"}
                         className={cn(
-                            "w-full xl:max-w-[180px]  justify-start text-left font-normal",
-                            !date && "text-muted-foreground"
+                            "w-full xl:max-w-[180px] justify-start text-left font-normal",
+                            !date && "text-muted-foreground text-xs"
                         )}
                         >
                         <CalendarIcon />
@@ -129,7 +129,7 @@ const EventHistory = () => {
                 </Popover>
 
                 <Select onValueChange={(value) => setStatus(value)} value={status}>
-                    <SelectTrigger className="xl:max-w-[80px]">
+                    <SelectTrigger className="xl:max-w-[200px] text-xs">
                         {status ? status : "Status"} 
                     </SelectTrigger>
                     <SelectContent className="dark:bg-background-dark bg-white dark:text-white">
@@ -141,7 +141,7 @@ const EventHistory = () => {
                 </Select>
 
                 <Select onValueChange={(value) => setSpeaker(value)}>
-                    <SelectTrigger className="w-full xl:max-w-[80px] dark:border-none dark:bg-background-dark focus:ring-0 focus:outline-none">
+                    <SelectTrigger className="w-full text-xs xl:max-w-[180px] dark:border-none dark:bg-background-dark focus:ring-0 focus:outline-none">
                         {speaker ? speaker : "Name"}
                     </SelectTrigger>
                     <SelectContent className="dark:bg-background-dark bg-white dark:text-white">
@@ -158,7 +158,7 @@ const EventHistory = () => {
                     </SelectContent>
                 </Select>
 
-                <div className="flex gap-2 xl:items-center">
+                <div className="flex gap-2 xl:items-center text-sm">
                     <p>Displaying {filteredEvents.length} results</p>
                     <span className="ml-8 px-1 py-0.5 bg-red-500 rounded-md text-white cursor-pointer" onClick={clearAll}>clear</span>
                 </div>
@@ -166,7 +166,7 @@ const EventHistory = () => {
                 <div className="flex justify-between items-center">
                     <p className="mr-4">Sort:</p>
                     <Select onValueChange={(value) => setOrderEvents(value)}>
-                        <SelectTrigger className="w-[130px] dark:border-none dark:bg-background-dark focus:ring-0 focus:outline-none">
+                        <SelectTrigger className="w-[130px] text-xs dark:border-none dark:bg-background-dark focus:ring-0 focus:outline-none">
                             {orderEvent ? orderEvent : "Order Time"}
                         </SelectTrigger>
                         <SelectContent className="dark:bg-background-dark bg-white dark:text-white">
@@ -184,9 +184,9 @@ const EventHistory = () => {
                         <Dot className="w-5" />
                         <Dot className="w-5" />
                     </div>
-                    <div className="flex gap-2 border-2 py-1 px-3 rounded-md cursor-pointer">
+                    <div className="flex items-center text-xs gap-1 border-2 py-1 px-3 rounded-md cursor-pointer">
                         <Download className="w-[20px]" />
-                        Export
+                        <span>Export</span>
                     </div>
                 </div>
             </div>
