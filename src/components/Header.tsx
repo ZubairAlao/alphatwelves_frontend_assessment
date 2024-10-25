@@ -40,7 +40,7 @@ export default function Header() {
   }
 
   return (
-    <header className='fixed top-0 z-50 bg-white dark:bg-background-dark w-full h-[64px] shadow-md flex justify-start max-w-[1480px] items-center '>
+    <header className='fixed top-0 z-50 bg-white dark:bg-background-dark w-full h-[64px] shadow-md flex justify-start max-w-[1480px] items-center xl:hidden'>
       <div className="flex justify-between items-center container" >
         {/* logo */}
         <div>
@@ -53,8 +53,8 @@ export default function Header() {
           {/* mobile */}
           <div
             className={`${
-              toggle ? "lg:block translate-x-0 opacity-100" : "translate-x-full opacity-50 hidden"
-            } flex lg:hidden bg-white dark:bg-background-dark dark:text-white min-h-screen absolute top-[63px] right-0 p-6 h-screen transition-all duration-500 ease-in-out transform w-[100%]`}
+              toggle ? "xl:block translate-x-0 opacity-100" : "translate-x-full opacity-50 hidden"
+            } flex xl:hidden bg-white dark:bg-background-dark dark:text-white min-h-screen absolute top-[63px] right-0 p-6 h-screen transition-all duration-500 ease-in-out transform w-[100%]`}
           >
             <ul className="w-full">
               {navHeaders.map((link) => (

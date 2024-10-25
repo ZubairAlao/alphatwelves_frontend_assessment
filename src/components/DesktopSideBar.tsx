@@ -1,11 +1,12 @@
 import imgAvatar from "@/assets/icons/header_icons/image_icon.svg"
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { navHeaders } from "@/constants";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
 import { useTheme } from "@/components/theme-provider"
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import LogoIcon from "@/assets/icons/logo.svg";
 
 
 const DesktopSideBar = () => {
@@ -26,11 +27,16 @@ const DesktopSideBar = () => {
     <div>
         {/* desktop */}
         <div
-            className={`pt-20 max-w-[240px] overflow-y-auto hidden xl:flex bg-white dark:bg-background-dark dark:text-white min-h-screen p-6 h-screen transform w-[100%] border-r dark:border-none border-gray-300`}
+            className={`pt-20 xl:pt-4 max-w-fit sticky top-0 z-20 hidden xl:flex flex-col bg-white dark:bg-background-dark dark:text-white min-h-screen p-6 h-screen transform w-full border-r dark:border-none border-gray-300`}
           >
+            <div className="mb-4 px-4">
+              <Link to='/' className="dark:bg-white text-white" >
+                <img src={LogoIcon} alt="logo" className="w-[37px] h-fit" />
+              </Link>
+            </div>
             <ul className="w-full">
               {navHeaders.map((link) => (
-                <li className={`mb-2 text-[14px]`} key={link.label}>
+                <li className={`text-[14px]`} key={link.label}>
                   <NavLink
                     to={link.link}
                     className={({ isActive }) => isActive ? "flex gap-4 items-center w-full py-2 px-4 relative" : "flex gap-4 items-center w-full py-2 px-4 relative"}
@@ -55,7 +61,7 @@ const DesktopSideBar = () => {
                     onClick={handleToggleDesktopFullWidth}
                     />
                  }
-                <p className={`${toggleDesktopFullWidth ? "hidden" : "block" }`}>
+                <p className={`cursor-pointer ${toggleDesktopFullWidth ? "hidden" : "block" }`} onClick={handleToggleDesktopFullWidth}>
                   collapse
                 </p>
               </li>
@@ -71,9 +77,9 @@ const DesktopSideBar = () => {
               </li>
               <li className="flex gap-2 items-center w-full py-2 px-4 text-sm">
                 <img src={imgAvatar} alt="usericon" className="cursor-pointer w-8 h-fit border rounded-full" />
-                <div className={`${toggleDesktopFullWidth ? "hidden" : "block"}  flex flex-col cursor-pointer`}>
+                <div className={`${toggleDesktopFullWidth ? "hidden" : "block"} flex flex-col cursor-pointer`}>
                   <p>Zubair Alao</p>
-                  <p>AlaoZubair@gmail.com</p>
+                  <p className="">AlaoZubair@gmail.com</p>
                 </div>
               </li>
             </ul>

@@ -205,9 +205,45 @@ export const eventsProgram = [
     date: "2024-08-14",
   },
   {
-    title: "Tech Safari Mixer",
-    speaker: "Prof. Robert Cook",
+    title: "DevFest",
+    speaker: "Mr Kamaldeen",
     status: "Completed",
-    date: "2024-09-19",
+    date: "2024-10-02",
+  },
+  {
+    title: "Google Developer Meeting",
+    speaker: "Prof. Aishat",
+    status: "In Progress",
+    date: "2025-05-19",
+  },
+  {
+    title: "Polio Vaccine Eradication",
+    speaker: "Prof. Kingley Ayelagba",
+    status: "In Progress",
+    date: "2025-03-12",
+  },
+  {
+    title: "Women EmpowerMent",
+    speaker: "Alh. Rukayat Cook",
+    status: "Completed",
+    date: "2024-02-13",
+  },
+  {
+    title: "Young Shall Grow",
+    speaker: "Alh. Bibire",
+    status: "Completed",
+    date: "2024-01-09",
+  },
+  {
+    title: "Dj AnyMoney Mixer",
+    speaker: "Dj. Kansogo",
+    status: "In Progress",
+    date: "2025-04-21",
+  },
+  {
+    title: "Good Boy Entertainment",
+    speaker: "Dj. Festival",
+    status: "Completed",
+    date: "2024-01-09",
   }
 ];

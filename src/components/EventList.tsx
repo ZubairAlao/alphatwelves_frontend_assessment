@@ -28,7 +28,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
-  import { ArrowLeft } from "lucide-react";
+  import { ArrowLeft, DotIcon } from "lucide-react";
   import { ArrowRight } from "lucide-react";
 import { EventPrograms } from "./EventHistory";
 import { DialogEdit } from "./DialogEdit";
@@ -155,9 +155,11 @@ import { DialogEdit } from "./DialogEdit";
               <AccordionItem key={index} value={`item-${index}`}>
                 <AccordionTrigger className="flex items-center text-xs">
                   <span className="w-[140px] text-left">{eventlist.title}</span>
-                  <span className={`p-1 text-white text-xs rounded-md ${eventlist.status.toLowerCase() === "in progress" ? "bg-green-700" : "bg-blue-600"}`}>
-                    {eventlist.status}
-                  </span>
+                  <div 
+                      className={`py-1 ml-auto w-[105px] text-xs px-2 rounded-2xl inline-flex border-2 justify-center items-center ${eventlist.status.toLowerCase() === "in progress" ? "bg-green-700" : "bg-blue-600"}`}>
+                      {/* <DotIcon className={`text-white`} /> */}
+                      <span className={`text-white`}>{eventlist.status}</span>
+                  </div>
                 </AccordionTrigger>
                 <AccordionContent className="flex justify-between items-center text-xs">
                   <p>{eventlist.speaker}</p>
@@ -171,20 +173,20 @@ import { DialogEdit } from "./DialogEdit";
           )}
           </Accordion>
 
-          <div className="hidden xl:block max-w-screen-xl border-2">
-          <Table>
+          <div className="hidden xl:block max-w-screen-xl">
+          <Table className="dark:bg-background-dark">
               <TableHeader>
-                <TableRow>
+                <TableRow className="bg-[#F1F5F9] dark:bg-[#6A6676] border-none">
                   <TableHead>Event</TableHead>
                   <TableHead>Date</TableHead>
                   <TableHead>Speaker</TableHead>
-                  <TableHead className="text-right">Status</TableHead>
+                  <TableHead className="text-left">Status</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody className=" w-full">
               {eventsData && eventsData.length > 0 ? (
                 eventsData.slice(startIndex, endIndex).map((eventlist, index) => (
-                  <TableRow key={index}>
+                  <TableRow key={index} className="border-none">
                     <TableCell className="font-medium">
                       <DialogEdit 
                         title={eventlist.title} 
@@ -194,8 +196,12 @@ import { DialogEdit } from "./DialogEdit";
                     </TableCell>
                     <TableCell>{eventlist.date}</TableCell>
                     <TableCell>{eventlist.speaker}</TableCell>
-                    <TableCell className="text-right text-white">
-                      <span className={`p-2 rounded-md ${eventlist.status.toLowerCase() === "in progress" ? "bg-green-700" : "bg-blue-600"}`}>{eventlist.status}</span>
+                    <TableCell className="text-right text-white flex justify-start">
+                      <div 
+                        className={`py-1 px-2 rounded-2xl inline-flex border-2 justify-center items-center ${eventlist.status.toLowerCase() === "in progress" ? "border-green-700" : "border-blue-600"}`}>
+                            <DotIcon className={`flex justify-center items-center ${eventlist.status.toLowerCase() === "in progress" ? "text-green-700" : "text-blue-600"}`} />
+                            <span className={`dark:text-white ${eventlist.status.toLowerCase() === "in progress" ? "text-green-700" : "text-blue-600"}`}>{eventlist.status}</span>
+                        </div>
                       </TableCell>
                   </TableRow>
                 ))

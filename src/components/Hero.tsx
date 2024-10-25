@@ -4,7 +4,7 @@ import ArrowDownIcon from "@/assets/icons/arrow-down-right.svg"
 
 const Hero = () => {
   return (
-    <section className='pt-20 container'>
+    <section className='pt-20 xl:pt-0 container'>
         <h1 className='text-base font-semibold mb-4 mt-4'>Welcome! here’s your summary</h1>
         <div className='space-y-2 lg:space-y-0 text-base lg:flex gap-4'>
             <div className='border-2 dark:border-none dark:bg-background-dark p-2 rounded-md flex-1'>
